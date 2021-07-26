@@ -1,0 +1,13 @@
+name: "dgonzalez80"
+output_dir: "."
+navbar:
+  title: "dgonzalez80"
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+    - text: "Módulo 1"
+      icon: albums-outline
+      menu:
+         - text: "Presentacion101"
+           href: punidad101.html
