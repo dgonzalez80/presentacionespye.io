@@ -3,3 +3,23 @@ Recursos
 Codigos colores
 https://www.google.com/search?q=%2354ACD2&oq=%2354ACD2&aqs=chrome..69i57j0i30.530j0j15&sourceid=chrome&ie=UTF-8
 
+--------------------------------------------------
+INCRUSTAR VIDEO
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+</video>
+
+------------------------------------------------
+DOS COLUMNAS EN XARINGAN
+.pull-left[
+
+]
+.pull-right[
+
+]
+
+-------------------------------------------------
+SALTO DE LINEA EN HTML
+<br/>
+
+-------------------------------------------------
