@@ -124,7 +124,7 @@ El formato **csv** es uno de los mas utilizados para el almacenamiento de datos 
 + RStudio usando ventanas : **File/ Import Dataset / From Text (base)...**
 + RStudio usando comandos : 
 
-```{r, echo=TRUE, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 bd0052 <- read_csv("data/datapye20212.csv")
 var1=c(1,4,5)
 bd0052=bd0052[,var1]

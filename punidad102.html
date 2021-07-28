@@ -134,26 +134,6 @@ El formato **csv** es uno de los mas utilizados para el almacenamiento de datos 
 
 ```r
 bd0052 &lt;- read_csv("data/datapye20212.csv")
-```
-
-```
-## Rows: 53 Columns: 6
-```
-
-```
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (4): apellidos, nombres, grupo, programa
-## dbl (2): id, promedio
-```
-
-```
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-```r
 var1=c(1,4,5)
 bd0052=bd0052[,var1]
 head(bd0052, n=3)
