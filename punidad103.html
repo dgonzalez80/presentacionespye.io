@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Unidad 1.1 Bases de datos</title>
+    <meta charset="utf-8" />
+    <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+    <link href="site_libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="site_libs/remark-css-0.0.1/ki-fonts.css" rel="stylesheet" />
+    <link href="site_libs/remark-css-0.0.1/duke-blue.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Unidad 1.1 Bases de datos
+## Módulo 1
+### 
+### Daniel Enrique González Gómez <br/> Universidad Javeriana Cali
+### 2021-30-07
+
+---
+
+class: inverse
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+# AGENDA
+&lt;br/&gt;&lt;br/&gt;
+## 1.  Dudas y preguntas
+
+## 2. Actividad 1
+
+## 3. Cargar  de datos en RStudio
+
+## 4. Varios
+
+---
+## Importar una base de datos en formato csv
+
+Pasos:
+
++ Selecciono una base de datos de mi interés (portal **FiveThirtyEight**: https://data.fivethirtyeight.com/ - base de datos Predicción de clubes de  fútbol)
++ Descargo la base de datos y la guardo en la carpeta de trabajo
++ Importo la base a RStudio 
+
+```r
+library(DT)
+clasificacion=read.csv("data/spi_global_rankings_intl.csv")
+DT::datatable(head(clasificacion, 218),fillContainer = FALSE, options = list(pageLength = 3))
+```
+
+
+Recuerda que hemos visto varias formas de hacerlo. 
+---
+
++ Reviso la base de datos para poder detectar si presenta inconsistencias
+
+
+```r
+summary(clasificacion[,1:6])
+```
+
+```
+##       rank            name              confed               off             def              spi       
+##  Min.   :  1.00   Length:218         Length:218         Min.   :0.200   Min.   :0.3200   Min.   : 0.26  
+##  1st Qu.: 55.25   Class :character   Class :character   1st Qu.:0.690   1st Qu.:0.9225   1st Qu.:19.90  
+##  Median :109.50   Mode  :character   Mode  :character   Median :1.075   Median :1.3150   Median :37.91  
+##  Mean   :109.50                                         Mean   :1.166   Mean   :1.6692   Mean   :39.58  
+##  3rd Qu.:163.75                                         3rd Qu.:1.540   3rd Qu.:2.0100   3rd Qu.:58.80  
+##  Max.   :218.00                                         Max.   :3.540   Max.   :6.0800   Max.   :93.99
+```
+
+---
++ Otra forma de realizar el proceso es:
+
+
+```r
+summarytools::descr(clasificacion)
+```
+
+```
+## Descriptive Statistics  
+## 
+##                        def      off     rank      spi
+## ----------------- -------- -------- -------- --------
+##              Mean     1.67     1.17   109.50    39.58
+##           Std.Dev     1.12     0.66    63.08    24.61
+##               Min     0.32     0.20     1.00     0.26
+##                Q1     0.92     0.69    55.00    19.77
+##            Median     1.31     1.08   109.50    37.91
+##                Q3     2.02     1.54   164.00    58.82
+##               Max     6.08     3.54   218.00    93.99
+##               MAD     0.67     0.62    80.80    29.88
+##               IQR     1.09     0.85   108.50    38.90
+##                CV     0.67     0.56     0.58     0.62
+##          Skewness     1.77     0.82     0.00     0.15
+##       SE.Skewness     0.16     0.16     0.16     0.16
+##          Kurtosis     3.01     0.54    -1.22    -0.94
+##           N.Valid   218.00   218.00   218.00   218.00
+##         Pct.Valid   100.00   100.00   100.00   100.00
+```
+
+---
+- Tambien :
+
+
+```r
+summarytools::dfSummary(clasificacion)
+```
+
+![](img/summarytool1.png)
+---
+## Rcmdr
+Este paquete de R permite cargar otra interz gráfica de usuarios que utiliza ventanas en lugar de comandos
+
+
+```r
+# install.packages("Rcmdr", dependencies = TRUE)
+# install.packages("RcmdrMisc", dependencies = TRUE)
+library(Rcmdr)
+library(RcmdrMisc)
+# Commander()  # en caso de cerrarlo y querer abrirlo nuevamente
+```
+
+![](img/Rcmdr.png)
+Revisalo !
+
+Ayuda: Tutorial Cómo Utilizar RCommander :https://www.youtube.com/watch?v=_aTYtNflcxU 
+
+
+---
+## Otros portales de datos abiertos
+
++ **kaggle**    https://www.kaggle.com
+
++ **FiveThirtyEight**    https://data.fivethirtyeight.com/
+
++ **Datos abiertos Cali**  https://datos.cali.gov.co/
+
+---
+class: inverse
+background-image: url("img/railway-1555348_1920.jpg")
+
+	&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+# &lt;p style="color:yellow"&gt; Sigamos adelante... &lt;/p&gt;
+
+## &lt;p style="color:yellow"&gt; Daniel Enrique González Gómez &lt;/p&gt;
+
+Imagen tomada de :https://pixabay.com/es/images/search/paisaje/
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highighStyle": "github",
+"highlighLine": true,
+"countIncrementalSlides": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

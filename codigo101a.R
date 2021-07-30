@@ -26,14 +26,14 @@
 install.packages("RSocrata", dependencies = TRUE) 
 library(RSocrata)
 token <- "zxMsD6eXc0zlEMryRGW87Hwrz"
-df.ins <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token)
+Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token)
 # Este proceso tarde unos minutos pues  la base es grande
 
 # Para guardar el archivo en mi Pc
 # El formarto RDS es menos pesado
-saveRDS(df.ins, file = "data/Colombia.RDS")  
+saveRDS(Colombia, file = "data/Colombia.RDS")  
 
-#4. Podemos trabajar con Dataset disponible en los paquetes de R
+# 4. Podemos trabajar con Dataset disponible en los paquetes de R
 #   Para ello solo utilizamos la funcion data
 data(iris)
 data(cars)
@@ -47,7 +47,7 @@ file.choose()
 # "/home/deg/github/dgonxalex.github.io/Colombia.csv"
 # Ahora pego la ruta dentro de la funcion read.csv() y le indico que me la copie
 # en un objeto
-Colombia=read.csv()
+Colombia<- read_csv("~/Descargas/Casos_positivos_de_COVID-19_en_Colombia (1).csv",col_types = cols(Edad = col_integer()))
 #===============================================================================  
 #
 # REVISAR Y ARREGLAR LOS DATOS
@@ -75,7 +75,7 @@ head(iris)
 tail(iris)
 # ------------------------------------------------------------------------------
 # Observemos lo que pasa con la base de datos de Covid-19
-table(df.ins$ubicacion)
+table(Colombia$ubicacion)
 # casa         Casa         CASA    Fallecido     Hospital Hospital UCI   N/A 
 # 6982      2078352            7        56733        20461         3395   7417 
 
@@ -93,8 +93,9 @@ library(tidyverse)
 
 # Ahora arreglamos el problema de casa
 # Primero vamos a unificar todos los valores, todo en minuscula
-df.ins$ubicacion=str_to_lower(df.ins$ubicacion)
-table(df.ins$ubicacion)
+Colombia$`Ubicación del caso`=str_to_lower(Colombia$`Ubicación del caso`)
+
+table(Colombia$`Ubicación del caso`)
 # ahora quitamos el valor n/a y lo convertimos en na
 df.ins$ubicacion[df.ins$ubicacion=="n/a"]=NA
 table(df.ins$ubicacion)
