@@ -91,6 +91,12 @@ Ayuda: Tutorial Cómo Utilizar RCommander :https://www.youtube.com/watch?v=_aTYt
 
 + **Datos abiertos Cali**  https://datos.cali.gov.co/
 
++ **The home of the U.S. Government’s open data** https://www.data.gov/
+
++ **World Bank Open Data** https://data.worldbank.org/
+
++ **Open data initiative of the Government of Spain** https://datos.gob.es/en
+
 ---
 class: inverse
 background-image: url("img/railway-1555348_1920.jpg")
