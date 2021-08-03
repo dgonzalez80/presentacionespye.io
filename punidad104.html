@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Unidad 1.2 Tablas de distribución e indicadores estadísticos</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2021-08-02" />
+    <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+    <link href="site_libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="site_libs/remark-css-0.0.1/ki-fonts.css" rel="stylesheet" />
+    <link href="site_libs/remark-css-0.0.1/duke-blue.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Unidad 1.2 Tablas de distribución e indicadores estadísticos
+## Módulo 1
+### 
+### Daniel Enrique González Gómez <br/> Universidad Javeriana Cali
+### 2021-08-02
+
+---
+
+
+
+
+
+class: inverse
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+# AGENDA
+&lt;br/&gt;
+## 1.  Presentación guía de aprendizaje 1.2
+
+## 2. Tablas de frecuencia 
+
+## 3. Indicadores estadísticos
+
+## 4. Varios
+
+---
+
+&lt;img src="img/preguntas.jpg" width="300"&gt;
+---
+class: inverse
+background-image: url("img/tablero1.jpg")
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+## Indicadores
+### ¿Que son?
+---
+## Tablas de freciencia variables cualitativas
+
+.pull-left[
+Las distribuciones de frecuencia o también llamadas tablas de frecuencia nos sirven para agrupar los datos y asi permitir resumir para poder tener una idea mas clara de sus características.
+
+Para las variables cualitativas la tabla posee 3 columnas : 
+
++ C1: los diferentes **valores** que toma la variable. 
+
++ C2:  **frecuencia absoluta** que consiste en el conteo para cada uno de los valores distintos que toma la variable. 
+
++ C3: **frecuencia relativa ** que corresponde  al porcentaje la cantidad de datos para cada los valores
+]
+.pull-right[
+
+```r
+# Forma simple
+table(ventas$Tipo_Cliente)
+```
+
+```
+## 
+## Promocional     Regular 
+##         140          60
+```
+
+
+
+```r
+# Forma simple
+t=table(ventas$Tipo_Cliente)
+prop.table(t)
+```
+
+```
+## 
+## Promocional     Regular 
+##         0.7         0.3
+```
+]
+
+---
+
+
+```r
+#utilizando summarytools
+library(summarytools)
+t1=freq(ventas$Metodo_Pago, cumul = FALSE, headings = FALSE)
+t1
+```
+
+```
+## 
+##                          Freq   % Valid   % Total
+## ---------------------- ------ --------- ---------
+##       American Express      4      2.00      2.00
+##               Discover      8      4.00      4.00
+##             MasterCard     28     14.00     14.00
+##              Star Card    140     70.00     70.00
+##                   Visa     20     10.00     10.00
+##                   &lt;NA&gt;      0                0.00
+##                  Total    200    100.00    100.00
+```
+
+En la tabla se destacan las frecuencias obtenidas por la tarjegta Star Card que se pueden interpretar :
++ 140 de los clientes utilizan la tarjeta Star Card para sus compras
++ El 70% de los clientes utilizan la tarjeta Star Card para sus compras
+Nota: paquete [summarytools](https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html) 
+---
+## Tablas de frecuencia para variables cuantitativas
+
+Para las variables cuantitativas las tablas de frecuencias tiene una presentación diferente a la vista anteriormente. Como se trata de variables con una gran numero de valores diferentes, es necesario dividirlas por intervalos .
+
+![](img/table4.png) 
+
+**Frec.Abs** : Frecuencia absoluta ; **Frec.Rel** : Frecuencia relativa ; **Frec.Abs.Ac** : Frecuencia Absoluta Acumuada ;
+**Frec.Rel.Ac** : Frecuencia Relativa Acumulada 
+
+---
+
+
+```r
+library(stringr)
+t1=freq(Colombia$estado, cumul = FALSE, headings = FALSE)
+t1
+```
+
+```
+## 
+##                      Freq      % Valid      % Total
+## --------------- --------- ------------ ------------
+##       Fallecido    120998     2.523729     2.523729
+##           Grave      3564     0.074337     0.074337
+##            leve     12312     0.256799     0.256799
+##            Leve   4621455    96.392489    96.392489
+##            LEVE         2     0.000042     0.000042
+##        Moderado     19891     0.414879     0.414879
+##             N/A     16192     0.337726     0.337726
+##            &lt;NA&gt;         0                  0.000000
+##           Total   4794414   100.000000   100.000000
+```
+
+---
+## Rango percentil
+
+Es un número que divide la muestra en dos partes. `\(x\)` % de los datos de la muestra son iguales o menores que `\(P_x\)` y un `\((100-x)\)` % por encima  de el.
+
+![](img/carrera.jpg)
+![](img/percentil2.png) 
++ Participé en una carrera **K10** y mi posición correspondió al percentil 30:    `\(P_{30}\)`
+
++ Mi nota en un examen de matemáticas y mi posición fue el percentil noventa:  `\(P_{90}\)`
+
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+
+--
+
++ Que significa: `\(P_{25}\)` ; `\(P_{50}\)` ;  `\(P_{75}\)`
+---
+## Diagrama de cajas 
+
+*boxplot(ventas$Edad)*
+
+![](img/boxplot1.png)
+
+
+atípico | `\(LI=Q_{1}- 1.5(Q_{3}-Q_{1})\)` | `\(Q_{1}\)` | `\(Q_{2}\)` | `\(Q_{3}\)` | `\(LS=Q_{3}+ 1.5(Q_{3}-Q_{1})\)` |  atípico 
+
+---
+## Características de los  datos
+
+.pull-left[
+**Tendencia central**
+
++ media
+
++ mediana
+
++ moda
+
++ media truncada
+
++ rango medio
+
++ media armónica
+
++ media geométrica
+]
+.pull-right[
+**Dispersión**
+
++ rango
+
++ varianza
+
++ desviación estándar
+
++ coeficiente de variación
+
+**Forma**
+
++ sesgo o asimetría
+
++ curtosis
+]
+---
+## Media aritmetica : 
+
+`$$\widehat{x}= \frac{1}{n} \sum_{i=1}^{n} x_{i}$$`
+
+Es una de los indicadores estadísticos mas conocidos
+
+Propiedades de la media :
++ La suma de las desviaciones de los datos con respecto a la media es cero. `\(\sum (x_{i}-\bar{x})=0\)`.
+
++ La suma de los cuadrados de las desviaciones de los datos con respecto a un valor {\bf `\(a\)`} es mínimo cuando `\(a=\bar{x}\)`.
+
++ Si `\(x_{i}=k\)` para todo `\(i\)`, entonces, `\(\bar{x}=k\)`.
+
++ Si todos los datos de una variable se multiplican por una constante `\(k\)`, es decir `\(y_{i}=kx_{i}\)`, entonces `\(\bar{y}=k\bar{x}\)`
+
++ Si `\(z_{i}=a x_{i}+b y_{i}\)`, donde: ***a***, ***b*** constantes y `\(x_{i}\)`, `\(y_{i}\)` variables, entonces: `\(\bar{z}=a\bar{x}+b\bar{y}\)`. 
+
+---
+.pull-left[
+
+```r
+mean(Colombia$edad,na.rm = TRUE)
+```
+
+```
+## [1] 39.57437
+```
+
+
+
+```r
+mean(ventas$Edad, na.rm = TRUE)
+```
+
+```
+## [1] 43.08
+```
+]
+
+--
+
+.pull-right[
+**PROBLEMA ** 
+
+```r
+x=1:10
+x
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
+cat("media :",mean(x))
+```
+
+```
+## media : 5.5
+```
+
+
+```r
+x[10]=20
+x
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 20
+```
+
+```r
+cat("media :" ,mean(x))
+```
+
+```
+## media : 6.5
+```
+]
+
+
+---
+## Mediana : 
+
+.pull-left[
+***Me*** :Es el número que divide la muestra en dos partes de igual proporción (50% : 50%). Es decir que corresponde a:
+
+`\(P_{50} = D_{5} = Q_{2}\)`
+
+Tambien es corresponde a la linea central del diagrama de cajas.
+
+
+```r
+median(Colombia$edad,na.rm = TRUE)
+```
+
+```
+## [1] 37
+```
+]
+.pull-right[
+
+```r
+boxplot(ventas$Edad)
+grid()
+```
+
+![](punidad104_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+La **Me** corresponde a la linea central de a caja en el diagrama de cajas
+]
+---
+La mediana es mas robusta a los cambio en los datos extremos. En presencia de datos atípicos es mejor utilizar la mediana en lugar que la media.
+
+
+```r
+x=1:10
+x
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+```r
+cat("mediana :" ,median(x))
+```
+
+```
+## mediana : 5.5
+```
+
+
+```r
+x[10]=20
+x
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 20
+```
+
+```r
+cat("mediana :" ,median(x))
+```
+
+```
+## mediana : 5.5
+```
+---
+## La Moda  
+
+**Mo** : Dato o valor que más se repite.
+Es utilizada como medida de tendencia central en variables cualitativas o 
+o en cuantitativas discretas con pocos valores. En una tabla o  gráfico se puede distinguir fácilmente. 
+
+```r
+#utilizando summarytools
+library(summarytools)
+t1=freq(ventas$Metodo_Pago, cumul = FALSE, headings = FALSE)
+t1
+```
+
+```
+## 
+##                          Freq   % Valid   % Total
+## ---------------------- ------ --------- ---------
+##       American Express      4      2.00      2.00
+##               Discover      8      4.00      4.00
+##             MasterCard     28     14.00     14.00
+##              Star Card    140     70.00     70.00
+##                   Visa     20     10.00     10.00
+##                   &lt;NA&gt;      0                0.00
+##                  Total    200    100.00    100.00
+```
+
+Moda : ** ? **
+
+---
+## Otras medidas de centro
+
++ Media truncada al 10%
+
+```r
+mean(ventas$Ventas_Netas, na.rm = TRUE, trim = 0.10)
+```
+
+```
+## [1] 827.25
+```
+
++ **Rango medio** : `\(\frac{1}{2}(max(x)+min(x))\)`
+
+```r
+(max(ventas$Ventas_Netas,na.rm = TRUE)+min(ventas$Ventas_Netas,na.rm = TRUE))/2
+```
+
+```
+## [1] 14388.5
+```
+
++ **Media geométrica** : este indicador de tendencia central se utiliza para promediar tasa de crecimiento o de interes. Para encontar su valor se multiplican los valores de `\(n\)` tasas incrementadas en uno. A ese producto se le extrae la raiz n-esima.
+
++ **Media armónica** : Este indicador corresponde al inverso de la media aritmética 
+
+---
+class: inverse
+## Problema reconocimiento de grupo
+--
+
+.pull-left[
+**Grupo 1** &lt;br/&gt;&lt;br/&gt;
+Edades : 19, 22, 18, 21 &lt;br/&gt;
+Promedio : 20 años
+&lt;img src="img/grupo1.png" width="300"&gt;
+]
+.pull-right[
+**Grupo 2**&lt;br/&gt;
+Edades : 39, 38, 2, 1&lt;br/&gt;
+Promedio : 20 años
+&lt;img src="img/grupo2.png" width="300"&gt;
+]
+
+Hace falta otro indicador que nos oriente de cual grupo hablamos cuando solo tenemos como información : media = 20 años.
+---
+# Indicadores de Dispersión
+
+## Rango
+
+`\(r = max(x) - min(x)\)`
+
+En caso de los dos grupos:
+
+**Grupo 1**  : &lt;br/&gt;
+`\(\bar{x} = 20\)` años  &lt;br/&gt;
+`\(r = 4\)` años
+
+**Grupo 1**  : &lt;br/&gt;
+`\(\bar{x} = 20\)` años  &lt;br/&gt;
+`\(r = 38\)` años
+
+
+Indicador muy útil cuando se deben realiar cálculos rápidos
+---
+## Varianza `\(s^{2}\)`
+
+Es la medida de dispersión más utilizada en estadística y está definida por 
+
+`$$s^{2}=\frac{1}{n-1} \sum_{i=1}^{n} (x_{i}-\bar{x})^{2}$$`
+
+**Propiedades de la varianza**
+
++ `\(s^{2} = \frac{1}{n} \sum x_{i}^{2}- (\bar{x})^{2}\)` 
+
++ La varianza es siempre no negativa  `\(s^{2} &gt;=0\)`
+
++ La varianza de una constante es cero `\(s_{k}^{2}=0\)`
+
++ Si `\(y_{i}=k x_{i}\)`, entonces `\(s_{y}^{2}= k^{2} s_{x}\)`
+
++ Si `\(y_{i}=x_{i} + k\)` , entonces  `\(s_{y}^{2} = s_{x}\)`
+
++ Si `\(z_{i} = a x_{i} + b y_{i}\)`, entonces `\(s_{z}^{2}\)` = `\(a^{2}s_{x}^{2}\)` + `\(b^{2}s_{y}^{2}\)` + `\(2ab\)` `\(cov(xy)\)`
+
+La varianza se puede interpretar como el promedio de las diferencias cuadradas entre cada uno de los datos y la media
+---
+El problema de la varianza es su **interpretación**
+
+--
+
+Sus unidades son al cuadrado y en la mayoría de los casos no es posible interpretarlos. Por esta razón se optó por utilizar otra mediada de dispersión
+
+### Desviación estándar 
+
+Es la raíz cuadrada de la varianza
+
+`$$s=\sqrt{s^{2}}$$`
+
+**Nota** : no aplican todas las propiedades de la varianza
+
+
+```r
+cat( "Varianza           :",var(ventas$Edad),"\n") 
+```
+
+```
+## Varianza           : 152.7172
+```
+
+```r
+cat("Desviación estándar :",sd(ventas$Edad))
+```
+
+```
+## Desviación estándar : 12.35788
+```
+Aunque la desviación estándar reduce el problema debido a tener las mismas unidades de la variable, es útil para comparación de dos grupos
+
+---
+## Coeficiente de variación
+
+Nos indica que tan grande o que tan pequeña es la desviación estándar con respecto a su media
+
+$$CV= \dfrac{s}{\bar{x}} \times 100 \% $$
+
+Existen diferentes reglas empíricas para la interpretación del coeficiente de variación. Una de ellas establece como límite el 20% para separar los grupos homogéneos de los heterogéneos Por lo general se utiliza un valor hasta el 20% para determinar que un grupo de datos son homogéneos, de lo contrario se calificará como heterogéneo.
+
+
+```r
+cat("Coeficiente de variación :",sd(ventas$Edad)/mean(ventas$Edad)*100)
+```
+
+```
+## Coeficiente de variación : 28.68589
+```
+
+---
+class: inverse
+# Indicadores de forma
+
+## Curtosis
+
+Se mide a través del coeficiente de curtosis que mide cuan **puntiaguda** es una distribución respecto a la curva de la distribución normal entandar.
+
+De acuerdo con su valor, la puntudez de los datos puede clasificarse en tres grupos:
+
++ **Leptocúrtica**, con valores grandes para el coeficiente (CA&gt;0)
+
++ **Mesocúrtica**, con valores medianos para el coeficiente (CA=0)
+
++ **Platicútrica**, con valores pequeños para el coeficiente (CA&lt;0) 
+
+&lt;img src="img/curtosis.png" width="500"&gt;
+
+---
+class: inverse
+## Asimetría o sesgo
+
+Mide que tanto la forma de la distribución de frecuencias de los datos es simétrica o no con respecto a la media. Esta característica de los datos se mide a través del coeficiente de asimetría o sesgo.
+
++ Es **simétrica** si el  valor del indicador es 0 ( `\(\bar{x}=Me\)` )
+
++ Es **asimétrica a la izquierda** si el valor del indicador es negativo ( `\(\bar{x}&lt;Me\)` )
+
++ Es **asimétrica a la derecha** si el valor del indicador es positivo ( `\(\bar{x}&gt;Me\)` )
+
+&lt;img src="img/asimetria.png" width="700"&gt;
+
++ **Asimetria negativa ** : Poco con poco, mucho con mucho
++ **Simetrica** : Poco con poco, poco con mucho, mucho al rededor de un centro
++ **Asimetria positiva** : Mucho con poco, poco con mucho
+---
+
+.pull-left[
+
+```r
+summarytools::descr(Colombia$edad)
+```
+
+```
+## Descriptive Statistics  
+## value  
+## N: 4794414  
+## 
+##                          value
+## ----------------- ------------
+##              Mean        39.57
+##           Std.Dev        17.89
+##               Min         1.00
+##                Q1        27.00
+##            Median        37.00
+##                Q3        52.00
+##               Max       114.00
+##               MAD        17.79
+##               IQR        25.00
+##                CV         0.45
+##          Skewness         0.41
+##       SE.Skewness         0.00
+##          Kurtosis        -0.17
+##           N.Valid   4794414.00
+##         Pct.Valid       100.00
+```
+]
+
+.pull-right[
+
+```r
+summarytools::descr(ventas$Edad)
+```
+
+```
+## Descriptive Statistics  
+## value  
+## N: 200  
+## 
+##                      value
+## ----------------- --------
+##              Mean    43.08
+##           Std.Dev    12.36
+##               Min    20.00
+##                Q1    32.00
+##            Median    42.00
+##                Q3    50.00
+##               Max    78.00
+##               MAD    13.34
+##               IQR    18.00
+##                CV     0.29
+##          Skewness     0.51
+##       SE.Skewness     0.17
+##          Kurtosis    -0.03
+##           N.Valid   200.00
+##         Pct.Valid   100.00
+```
+]
+---
+.pull-left[
+
+```r
+d1=density(Colombia$edad, na.rm=TRUE)
+plot(d1)
+```
+
+![](punidad104_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+]
+.pull-right[
+
+```r
+d2=density(ventas$Edad) 
+plot(d2)
+```
+
+![](punidad104_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+]
+---
+## Actividades
+&lt;br/&gt;
++ **Actividad 1** : Solución del caso 101
+    + **Nota**: RMarkdown permite realizar el trabajo fácilmente
+
+&lt;br/&gt;
++ **Actividad 2** : A partir de la  información contenida en  la base de datos  seleccionada en la **Unidad 1.1**, realice un análisis de al menos una variable cualitativa y una cuantitativa teniendo como soportes las tablas de frecuencia y los indicadores estadísticos correspondiente.
+
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+**Fecha**  : 08 agosto de 2021
+
+**Hora**   : 23:59 hora local 
+---
+class: inverse
+background-image: url("img/person-1245959_1920.jpg")
+
+	&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+# &lt;p style="color:yellow"&gt; Lo podemos lograr... &lt;/p&gt;
+
+## &lt;p style="color:yellow"&gt; Daniel Enrique González Gómez &lt;/p&gt;
+
+Imagen tomada de : https://pixabay.com/es/images/search/paisaje/
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highighStyle": "github",
+"highlighLine": true,
+"countIncrementalSlides": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
