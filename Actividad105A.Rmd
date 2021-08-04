@@ -1,0 +1,44 @@
+---
+title: "Actividad 1-05B"
+author: "Daniel Gonzalez"
+date: "04/08/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+Los siuientes datps corresponden a una muestra de 90 estudiantes de primer semestre. Las variables son recogidas son:
+
+cc :  codigo  de la asignatura, con valores: civ:  Ing. Civil,   ele:  Ing.Electrónica, sis: Ing.Sistemas y bio: Biología.
+
+nf :  nota final  de  la asignatura matematicas fundamentales
+
+```{r }
+# Datos muestra de 90 estudiantes de primer semestre
+# cc : codigo de la carrera
+cc=c("bio", "civ", "ele", "ele", "ele", "ele", "ele", "ele", "ele", "bio", 
+     "ele", "ele", "ele", "civ", "bio", "ele", "ele", "sis", "ele", "sis", 
+     "sis", "ele", "civ", "sis", "ele", "ele", "sis", "sis", "civ", "bio", 
+     "civ", "ele", "ele", "ele", "civ", "ele", "civ", "bio", "ele", "sis", 
+     "sis", "sis", "civ", "bio", "ele", "ele", "ele", "ele", "ele", "ele", 
+     "civ", "ele", "sis", "sis", "civ", "civ", "bio", "ele", "civ", "bio", 
+     "civ", "sis", "bio", "bio", "bio", "sis", "civ", "sis", "sis", "sis", 
+     "ele", "sis", "sis", "sis", "sis", "bio", "bio", "ele", "civ", "sis", 
+     "civ", "ele", "bio", "civ", "ele", "ele", "ele", "ele", "civ", "ele")
+```
+
+
+
+```{r }
+# nf : nota final de matematicas fundamentales 
+nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 
+     2.8, 3.3, 4.0, 3.4, NA , 3.1, 2.7, 2.7, 3.0, 3.8, 3.2, 2.2, 3.5, 3.5, 
+     3.8, 3.5, 3.9, 4.2, 4.3, 3.9, 3.2, 3.5, 3.5, 3.7, 4.1, 3.7, 3.5, 3.6, 
+     3.2, 3.1, 3.4, 3.0, 3.0, 3.0, 2.7, 1.7, 3.6, 2.1, 2.4, 3.0, 3.1, 2.5, 
+     2.5, 3.6, 2.2, 2.4, 3.1, 3.3, 2.7, 3.7, 3.0, 2.7, 3.0, 3.2, 3.1, 2.4, 
+     3.0, 2.7, 2.5, 3.0, 3.0, 3.0, 3.2, 3.1, 3.8, 4.1, 3.7, 3.5, 3.0, 3.7, 
+     3.7, 4.1, 3.7, 3.9, 3.7, 2.0)
+
+notas=data.frame(cc,nf)
+```
+
