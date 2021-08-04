@@ -11,14 +11,13 @@
 
 <meta name="author" content="dgonzalez" />
 
-<meta name="date" content="2021-01-01" />
 
-<title>Probabilidad y Estadística</title>
+<title>Sesión 5 Probabilidad y Estadística</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -31,9 +30,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -225,69 +221,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -295,16 +228,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -349,9 +272,6 @@ div.tocify {
     <li>
       <a href="punidad104.html">Presentacion104</a>
     </li>
-    <li>
-      <a href="punidad105.html">Presentacion105</a>
-    </li>
   </ul>
 </li>
       </ul>
@@ -366,19 +286,97 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><strong>Probabilidad y Estadística</strong></h1>
+<h1 class="title toc-ignore">Sesión 5 Probabilidad y Estadística</h1>
 <h4 class="author">dgonzalez</h4>
-<h4 class="date">2021</h4>
+<h4 class="date">4/8/2021</h4>
 
 </div>
 
 
-<p>PÁGINA EN CONSTRUCCIÓN</p>
-
-
-
+<div id="actividad" class="section level1">
+<h1>Actividad</h1>
+<div id="punto-1" class="section level3">
+<h3>Punto 1</h3>
+<ol style="list-style-type: decimal">
+<li><p>Verdadero o falso: para cualquier lista de números, la mitad de ellos estará debajo de la media. ( )</p></li>
+<li><p>¿Es la media de la muestra siempre el valor que ocurre con más frecuencia? Si es así, explique por qué. Si no, dé un ejemplo.( )</p></li>
+<li><p>¿La mediana de la muestra siempre es igual a uno de los valores de la muestra? Si es así, explique por qué. Si no, dé un ejemplo.( )</p></li>
+<li><p>Encuentre un tamaño de la muestra para el cual la mediana siempre sea igual a uno de los valores en la muestra. ( )</p></li>
+<li><p>En cierta compañía, cada trabajador recibió un aumento de $150 mil por semana. ¿Cómo afecta esto la media de los sueldos? ¿Y la desviación estándar de los sueldos? ( )</p></li>
+</ol>
+</div>
+<div id="punto-2" class="section level3">
+<h3>Punto 2</h3>
+<p>Un grupo de 16 estudiantes mide la circunferencia de una pelota de tenis por cuatro métodos diferentes, éstos fueron:</p>
+<ul>
+<li><strong>Método A</strong>: Estimar la circunferencia a simple vista.</li>
+<li><strong>Método B</strong>: Medir el diámetro con una regla y después calcular la circunferencia.</li>
+<li><strong>Método C</strong>: Medir la circunferencia con una regla y cuerda.</li>
+<li><strong>Método D</strong>: Medir la circunferencia haciendo rodar la pelota a lo largo de una regla.</li>
+</ul>
+<p>Los resultados (en cm) son los siguientes, en orden creciente para cada método:</p>
+<pre class="r"><code>MétodoA=c(18.0, 18.0, 18.0, 20.0, 22.0, 22.0, 22.5, 23.0,24.0, 24.0, 25.0, 25.0, 25.0, 25.0, 26.0, 26.4)
+MétodoB=c(18.8, 18.9, 18.9, 19.6, 20.1, 20.4, 20.4, 20.4,20.4, 20.5, 21.2, 22.0, 22.0, 22.0, 22.0, 23.6)
+MétodoC=c(20.2, 20.5, 20.5, 20.7, 20.8, 20.9, 21.0, 21.0,21.0, 21.0, 21.0, 21.5, 21.5, 21.5, 21.5, 21.6)
+MétodoD=c(20.0, 20.0, 20.0, 20.0, 20.2, 20.5, 20.5, 20.7,20.7, 20.7, 21.0, 21.1, 21.5, 21.6, 22.1, 22.3)</code></pre>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>Calcule la media de las mediciones para cada método.</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>Calcule la mediana de las mediciones para cada método.</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>Calcule la media recortada a 20% de las mediciones para cada método.</li>
+</ol></li>
+<li><ol start="4" style="list-style-type: lower-alpha">
+<li>Calcule el primero y el tercer cuartil para cada método.</li>
+</ol></li>
+<li><ol start="5" style="list-style-type: lower-alpha">
+<li>Calcule la desviación estándar de las mediciones paracada método.</li>
+</ol></li>
+<li><ol start="6" style="list-style-type: lower-alpha">
+<li>¿En qué método es la desviación estándar más grande?. ¿Por qué se esperaría que este método tenga la desviación estándar más grande?</li>
+</ol></li>
+<li><ol start="7" style="list-style-type: lower-alpha">
+<li>Sin que nada cambie ¿es preferible un método de medición que tenga una desviación estándar más pequeña o uno con una desviación estándar más grande? ¿O no importa? Explique.</li>
+</ol></li>
+<li><ol start="8" style="list-style-type: lower-alpha">
+<li>Si las mediciones para uno de los métodos se convirtieran a pulgadas (1 pulgada = 2.54 cm), ¿cómo afectaría esto la media? ¿Y la mediana? ¿Y los cuartiles? ¿Y la desviación estándar?</li>
+</ol></li>
+<li><ol style="list-style-type: lower-roman">
+<li>Si los estudiantes midieran nuevamente la pelota, usando una regla marcada en pulgadas, ¿los efectos sobre la media, la mediana, los cuartiles y la desviación estándar serían los mismos que los del inciso h)? Explique.</li>
+</ol></li>
+</ul>
+</div>
+<div id="punto-3" class="section level3">
+<h3>Punto 3</h3>
+<p>Una clase de Probabilidad y Estadística con 40 estudiantes realizó una prueba. El puntaje posible más alto era de cuatro puntos. Diez estudiantes obtuvieron cuatro puntos, 12 lograron tres puntos, ocho alcanzaron dos puntos, seis se beneficiaron con un punto y cuatro obtuvieron cero puntos. Calcule la media, la mediana y la desviación estándar de los puntajes.</p>
+</div>
+<div id="punto-4" class="section level3">
+<h3>Punto 4</h3>
+<p>Otra clase de estadística de 60 estudiantes realizó la misma prueba. En este clase, 15 estudiantes obtuvieron cuatro puntos, 18 alcanzaron tres puntos, 12 lograron dos puntos, nueve obtuvieron un punto y seis resultaron con cero puntos. Calcule la media, la mediana y la desviación estándar de los puntajes.</p>
+</div>
+<div id="punto-5" class="section level3">
+<h3>Punto 5</h3>
+<p>En otra clase de estadística, el número total de estudiantes no se conoce. En esta clase, 25% obtuvo cuatro puntos, 30% alcanzó tres puntos, 20% se benefició con dos puntos, 15% logró un punto y 10% resultó con cero puntos.</p>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>¿Es posible calcular la media de los puntajes para esta clase? Si es así, calcúlela. Si no, explique por qué.</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>¿Es posible calcular la mediana de los puntajes para esta clase? Si es así, calcúlela. Si no, explique por qué.</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>¿Es posible calcular la desviación estándar de la muestra de los puntajes para esta clase? Si es así, calcúlela. Si no, explique por qué</li>
+</ol></li>
+</ul>
+<p><strong>Nota</strong>: Ejercicios tomados de Navidi(2006)</p>
 </div>
 </div>
+
+
+
 
 </div>
 
@@ -411,35 +409,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
