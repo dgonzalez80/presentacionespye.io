@@ -1,0 +1,123 @@
+---
+title: "Taller_monitoria1"
+author: "dgonzalez"
+date: "5/8/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## **TALLER MÓDULO 1 .ESTADÍSTICA DESCRIPTIVAS** 
+**300MAE005-Probabilidad y Estadística** 
+	
+### 1. Elabore un gráfico para representar adecuadamente la siguiente información: 
+		
+* Durante 5 meses se construyen 134 kilómetros de carretera en la siguiente forma: En el primer més, 3.60\% del total; en el segundo més , 7.60\% del total; en el tercer més, el 15.3\% del total; en el cuarto més 24.5\%  del total y en último més, el 49\% restante. 
+			
+* Un grupo de Probabilidad y Estadística está conformado por 6 estudiantes de Ingenieria Electrónica (4 hombres, 2 mujeres), 10 de Ingenieria de Sistemas (5 hombre, 5 mujeres),
+15 de Ingenieria Civil (10 hombres, 5 mujeres), 3 estudiantes de Biología (1 hombre, 2 mujeres) y 5 de la carrera de Negocios internacionales (1 hombre, 4 mujeres). 
+	
+* Una muestra de los precios de memorias USB de una misma capacidad arrojó lo siguentes valores: 
+
+```
+   6 | 0 3 4
+   6 | 7 8 8 8
+   7 | 0 0 1 1 2 2 2 3 3 4 4
+   7 | 5 5 5 5 5 6 6 7 7 9
+   8 | 0 3 3 4
+   8 | 5 6 7 8 8 9 9
+   9 | 1
+```			
+			
+*  La clasificación de una empresa por cargo es la siguiente: Administrador 1, 3 Ingenieros, 30 Operarios, Celador 8, Contador 2, Secretarias 3, Supervisor 5, Vendedor 36. 
+
+
+
+### 2. Diez estudiantes en practica reciben un salario semanal  en pesos durante su trabajo de: 
+
+```
+343250,  373500,  408000, 376000, 395000, 360000, 605000, 403250, 350000, 392000
+```
+
++ Calcular la media, mediana y la moda
++ ¿Cuál de los tres indicadores de tendencia central es el más representativo y por qué?
+
+### 3. El peso de 80 artículos es de 130 kgs, si 60 de ellos pesan en promedio 120 kgs. Cuál será el peso promedio del resto de los artículos?
+
+### 4. Dé un ejemplo específico para cada uno de los siguientes promedios: 
+a. Media armónica. 
+b. Media geométrica.
+
+### 5. Un automovilista viaja de una ciudad $A$ a una ciudad $B$, en el viaje de ida la velocidad media es de 40 kms/hr. y de regreso ( B a A) una velocidad media de 60 km/hr. Halle la velocidad media del viaje completo.
+
+### 6. Que relación existe entre la media, la mediana y la moda :
++ En una distribución normal - o acampanada-
++ En una distribución positivamente asimétrica
++ En una distribucion negativamente asimétrica
+
+### 7. Cuales de las siguientes afirmaciones son verdaderas y cuáles falsas
+
++ Al hacer una gráfica, las frecuencias deben representarse en el eje de la ordenada.
++ El histograma, es una presentación muy efectiva de las distribuciones de frecuencias.
++ El polígono de frecuencias, es especialmente apto para comparar diferentes disribuciones. 
++ Una variable discreta puede ser representada mediante un histograma
++ El diagrama de barras se utiliza para representar datos continuos.
++ La relación de escalas en una gráfica debe de ser 1:1
++ Las gráficas se representan en el primer cuadrante.
++ Si multiplicamos la variable por una constante, el coeficiente de variación se altera.
++ La varianza de una constante por una variable es igual a la varianza de la variable.
++ Al sumar 4 a cada uno de los números de la serie : 2, 6, 5, 9, 1 se obtiene la serie 6, 10, 9, 13 y 5. Las series tienen igual varianza, distinta media y diferente coeficiente de variación.
+
+
+ 
+		%------------------------------------------------------------------------------------------
+### 8. En un estudio realizado para investigar la distribución del tiempo de frendo total  ( tiempo de reacción más tiempo para pasar del acelerador al freno, en ms) en condiciones reales de manejo a 60 km/h se obtuvo el siguiente resumen de la distribución de los tiempos: 
+		
+```	
+			media = 535       & mediana = 500       & moda = 500   
+			Desv.est. = 96    & mínimo = 220      	& máximo = 925 
+			percentil 5 = 400 & percentil 10 = 430  & percentil 90 = 640 
+			percentil95 = 720 &&\\  
+```
+¿Qué se concluye en relación con la forma de estos datos?
+
+### 9.  Para analizar la rapidez con que una máquina etiqueta las botellas en una compañía de jugos, se decide hacer seguimiento al número de botellas etiquetadas por día.  A  partir de los resultados procesados en  R presente un análisis estadístico para el número de botellas etiquetadas por día
+
+| i  |  Lower | Upper |Main   | fi   | hi    | Ni  | Hi   |
+|:--:|:------:|:-----:|:-----:|-----:|------:|----:|-----:|    
+|  1 |  5500  |6000   |5750   |  2   |  4.2  | 2   |  4.2 |
+|  2 |  6000  |6500   |6250   |  4   |  8.3  | 6   | 12.5 |
+|  3 |  6500  |7000   |6750   | 11   | 22.9  |17   | 35.4 |
+|  4 |  7000  |7500   |7250   | 10   | 20.8  |27   | 56.2 |
+|  5 |  7500  |8000   |7750   |  6   | 12.5  |33   | 68.8 |
+|  6 |  8000  |8500   |8250   | 10   | 20.8  |43   | 89.6 |
+|  7 |  8500  |9000   |8750   |  4   |  8.3  |47   | 97.9 |
+|  8 |  9000  |9500   |9250   |  1   |  2.1  |48   |100.0 |
+
+```
+Min.  1st Qu.  Median Mean  3rd Qu. Max. 
+5944  6847     7455   7458  8116    9121 
+```
+
+### 10. Considere una muestra $x_{1}$, $x_{2}$,....., $x_{n}$ y suponga que se calcularon los valores de $\bar{x}$, $s^{2}_{x}$  y $s_{x}$.
+
++ Sea $y_{i}= x_{i}-\bar{x}$ para $i=1,2....n$ .¿Cómo se comparan los valores de $s^{2}$ y $s$ para $y_{i}$ con los valores correspondientes a las $x_{i}$?
++ Sea $z_{i}=(x_{i}-\bar{x})/s$ para $i=1,2....n$ ¿Cuáles son los valores de la varianza y desviación estandar de la muestra para $z_{i}$?
+
+###  11. En una empresa se usan dos máquinas distintas para fabricar partes de cierto tipo. Durante un solo turno, se obtuvo una muestra de $n=20 $ partes que produce cada máquina, se determinó el valor de una dimensión crítica determinada. Con estos datos se contruyó el diagrama de cajas comparativo. Compare y describa las diferencias de las dos muestras.
+		%&
+%		\begin{figure}[b]
+%			\includegraphics[scale=0.5]{t2a.jpg}
+%		\end{figure}
+		
+		%\begin{figure}[h]
+		%\begin{minipage}{8cm}
+		%\item En una empresa se usan dos máquinas distintas para fabricar partes de cierto tipo. Durante un solo turno, se obtuvo una muestra de $n=20 $ partes que produce cada máquina, se determinó el valor de una dimensión crítica determinada. Con estos datos se contruyó el diagrama de cajas comparativo . Compare y describa las diferencias de las dos muestras.
+		%\end{minipage}
+		%\    \ \hfill \begin{minipage}{8cm} 
+		%\includegraphics[height=5cm,width=5cm]{t2a}
+		%\caption{{\small Teorema del valor medio}}
+		%\end{minipage}
+		%\end{figure}

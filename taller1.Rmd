@@ -1,0 +1,119 @@
+---
+title: "Sesión 5 Probabilidad y Estadística"
+author: "dgonzalez"
+date: "4/8/2021"
+output: pdf_document
+---
+
+# **Actividad**
+
+### *Punto 1*
+
+1. Verdadero o falso: para cualquier lista de números, la mitad de ellos estará debajo de la media. (**F** ) Por ejemplo: 
+```{r}
+x=c(1,1,1,1,2,3,4,5)
+cat("media : ", mean(x), "\n")
+sort(c(x,mean(x)))
+```
+
+
+
+1. ¿Es la media de la muestra siempre el valor que ocurre con más frecuencia? Si es así, explique por qué. Si no, dé un ejemplo.(F )
+
+1. ¿La mediana de la muestra siempre es igual a uno de los valores de la muestra? Si es así, explique por qué. Si no, dé un ejemplo.(F )
+
+1. Encuentre un tamaño de la muestra para el cual la mediana siempre sea igual a uno de los valores en la muestra. R/ impar
+
+
+### Punto 2 
+
+Un grupo de  16 estudiantes mide la circunferencia de una pelota de tenis por cuatro métodos diferentes, éstos fueron:
+
++ **Método A**: Estimar la circunferencia a simple vista.
++ **Método B**: Medir el diámetro con una regla y después calcular la circunferencia.
++ **Método C**: Medir la circunferencia con una regla y cuerda.
++ **Método D**: Medir la circunferencia haciendo rodar la pelota a lo largo de una regla.
+
+Los resultados (en cm) son los siguientes, en orden creciente para cada método:
+
+```{r }
+MA=c(18.0, 18.0, 18.0, 20.0, 22.0, 22.0, 22.5, 23.0,24.0, 24.0, 25.0, 25.0, 25.0, 25.0, 26.0, 26.4)
+MB=c(18.8, 18.9, 18.9, 19.6, 20.1, 20.4, 20.4, 20.4,20.4, 20.5, 21.2, 22.0, 22.0, 22.0, 22.0, 23.6)
+MC=c(20.2, 20.5, 20.5, 20.7, 20.8, 20.9, 21.0, 21.0,21.0, 21.0, 21.0, 21.5, 21.5, 21.5, 21.5, 21.6)
+MD=c(20.0, 20.0, 20.0, 20.0, 20.2, 20.5, 20.5, 20.7,20.7, 20.7, 21.0, 21.1, 21.5, 21.6, 22.1, 22.3)
+```
+
++ a) Calcule la media de las mediciones para cada método.
+
+<br/><br/>
+
+```{r, echo=FALSE}
+cat("Media método A :",mean(MA), "\n") 
+cat("Media método B :",mean(MD), "\n")
+cat("Media método C :",mean(MC), "\n")
+cat("Media método D :",mean(MD), "\n")
+```
+<br/><br/>
+
++ b) Calcule la mediana de las mediciones para cada método.
+
+```{r, echo=FALSE}
+cat("Mediana método A :",median(MA), "\n") 
+cat("Mediana método B :",median(MD), "\n")
+cat("Mediana método C :",median(MC), "\n")
+cat("Mediana método D :",median(MD), "\n")
+```
++ c) Calcule la media recortada a 20% de las mediciones para cada método.
+
+```{r, echo=FALSE}
+cat("Media recortada 20% método A :",mean(MA,.20), "\n") 
+cat("Media recortada 20% método B :",mean(MD,.20), "\n")
+cat("Media recortada 20% método C :",mean(MC,.20), "\n")
+cat("Media recortada 20% método D :",mean(MD,.20), "\n")
+```
+
+
++ d) Calcule el primero y el tercer cuartil para cada método.
+
+```{r}
+cat(" Método A : Cuartil P25   :", quantile(MA,0.25),"\n") 
+cat(" Método A : Cuartil P75   :", quantile(MA,0.75))
+
+```
+
+
++ e) Calcule la desviación estándar de las mediciones para cada método.
+
+```{r}
+cat("Desviación estandar método A:",sd(MA), "\n")
+```
+
+
+
++ f) ¿En qué método es la desviación estándar más grande?. ¿Por qué se esperaría que este método tenga la desviación estándar más grande?
+
+
++ g) Sin que nada cambie ¿es preferible un método de medición que tenga una desviación estándar más pequeña o uno con una desviación estándar más grande? ¿O no importa? Explique.
+
++ h) Si las mediciones para uno de los métodos se convirtieran a pulgadas (1 pulgada = 2.54 cm), ¿cómo afectaría esto la media? ¿Y la mediana? ¿Y los cuartiles? ¿Y la desviación estándar?
+
++ i) Si los estudiantes midieran nuevamente la pelota, usando una regla marcada en pulgadas, ¿los efectos sobre la media, la mediana, los cuartiles y la desviación estándar serían los mismos que los del inciso h)? Explique.
+
+
+### Punto 3 
+
+Una clase de Probabilidad y Estadística con 40 estudiantes realizó una  prueba. El puntaje posible más alto era de cuatro puntos. Diez estudiantes obtuvieron cuatro puntos, 12 lograron tres puntos, ocho alcanzaron dos puntos, seis se beneficiaron con un punto y cuatro obtuvieron cero puntos. Calcule la media, la mediana y la desviación estándar de los puntajes.
+
+### Punto 4
+
+Otra clase de estadística de 60 estudiantes realizó la misma prueba. En este clase, 15 estudiantes obtuvieron cuatro puntos, 18 alcanzaron tres puntos, 12 lograron dos puntos, nueve obtuvieron un punto y seis resultaron con cero puntos. Calcule la media, la mediana y la desviación estándar de los puntajes.
+
+### Punto 5
+
+En otra clase de estadística, el número total de estudiantes no se conoce. En esta clase, 25% obtuvo cuatro puntos, 30% alcanzó tres puntos, 20% se benefició con dos puntos, 15% logró un punto y 10% resultó con cero puntos.
+
++ a. ¿Es posible calcular la media de los puntajes para esta clase? Si es así, calcúlela. Si no, explique por qué.
++ b. ¿Es posible calcular la mediana de los puntajes para esta clase? Si es así, calcúlela. Si no, explique por qué.
++ c. ¿Es posible calcular la desviación estándar de la muestra de los puntajes para esta clase? Si es así, calcúlela. Si no, explique por qué
+
+**Nota**: Ejercicios tomados de Navidi(2006)
