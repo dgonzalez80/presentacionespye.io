@@ -59,8 +59,19 @@ Wikipedia
 
 
 ```r
-cc=c(20, 10, 20, 20, 20, 20, 20, 20, 20, 30, 20, 20, 20, 10, 30, 20, 20, 30, 20, 30, 30, 20, 10, 30, 20, 20, 30, 30, 10, 20, 10, 20, 20, 20, 10, 20, 10, 20, 20, 30, 30, 30, 10, 30, 20, 20, 20, 20, 20, 20, 10, 20, 30, 30, 10, 10, 10, 20, 10, 20, 10, 30, 20, 10, 20, 30, 10, 30, 30, 30, 20, 30, 30, 30, 30, 30, 30, 20, 10, 30, 10, 20, 20, 10, 20, 20, 20, 20, 10, 20); labs=c("Ing. Industrial","Administración ","Contaduría "); pct=round(table(cc)/sum(table(cc))*100); labs=paste(labs, pct);labs=paste(labs, "%", sep = " ") 
-pie(table(cc), labels=labs, main=" Distribución por carrera")
+cc=c(20, 10, 20, 20, 20, 20, 20, 20, 20, 30, 20, 20, 20, 10, 30, 20, 20, 30, 20, 
+     30, 30, 20, 10, 30, 20, 20, 30, 30, 10, 20, 10, 20, 20, 20, 10, 20, 10, 20, 
+     20, 30, 30, 30, 10, 30, 20, 20, 20, 20, 20, 20, 10, 20, 30, 30, 10, 10, 10, 
+     20, 10, 20, 10, 30, 20, 10, 20, 30, 10, 30, 30, 30, 20, 30, 30, 30, 30, 30, 
+     30, 20, 10, 30, 10, 20, 20, 10, 20, 20, 20, 20, 10, 20) 
+
+labs=c("Ing. Mecánica","Ing. Civil ","Ing.Sistemas") 
+pct=round(table(cc)/sum(table(cc))*100) 
+labs=paste(labs, pct);labs=paste(labs, "%", sep = " ") 
+t1=table(cc)
+pie(t1, 
+    labels=labs, 
+    main=" Distribución por carrera")
 ```
 
 ![](punidad107_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="dgonzalez" />
+
+
+<title>Taller_monitoria1</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">dgonzalez80</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="albums albums-outline"></span>
+     
+    Módulo 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="punidad101.html">Presentacion101</a>
+    </li>
+    <li>
+      <a href="punidad102.html">Presentacion102</a>
+    </li>
+    <li>
+      <a href="punidad103.html">Presentacion103</a>
+    </li>
+    <li>
+      <a href="punidad104.html">Presentacion104</a>
+    </li>
+    <li>
+      <a href="punidad105.html">Presentacion105</a>
+    </li>
+    <li>
+      <a href="punidad107.html">Presentacion107</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Taller_monitoria1</h1>
+<h4 class="author">dgonzalez</h4>
+<h4 class="date">5/8/2021</h4>
+
+</div>
+
+
+<div id="taller-módulo-1-.estadística-descriptivas" class="section level2">
+<h2><strong>TALLER MÓDULO 1 .ESTADÍSTICA DESCRIPTIVAS</strong></h2>
+<p><strong>300MAE005-Probabilidad y Estadística</strong></p>
+<div id="elabore-un-gráfico-para-representar-adecuadamente-la-siguiente-información" class="section level3">
+<h3>1. Elabore un gráfico para representar adecuadamente la siguiente información:</h3>
+<ul>
+<li><p>Durante 5 meses se construyen 134 kilómetros de carretera en la siguiente forma: En el primer més, 3.60% del total; en el segundo més , 7.60% del total; en el tercer més, el 15.3% del total; en el cuarto més 24.5% del total y en último més, el 49% restante.</p></li>
+<li><p>Un grupo de Probabilidad y Estadística está conformado por 6 estudiantes de Ingenieria Electrónica (4 hombres, 2 mujeres), 10 de Ingenieria de Sistemas (5 hombre, 5 mujeres), 15 de Ingenieria Civil (10 hombres, 5 mujeres), 3 estudiantes de Biología (1 hombre, 2 mujeres) y 5 de la carrera de Negocios internacionales (1 hombre, 4 mujeres).</p></li>
+<li><p>Una muestra de los precios de memorias USB de una misma capacidad arrojó lo siguentes valores:</p></li>
+</ul>
+<pre><code>   6 | 0 3 4
+   6 | 7 8 8 8
+   7 | 0 0 1 1 2 2 2 3 3 4 4
+   7 | 5 5 5 5 5 6 6 7 7 9
+   8 | 0 3 3 4
+   8 | 5 6 7 8 8 9 9
+   9 | 1</code></pre>
+<ul>
+<li>La clasificación de una empresa por cargo es la siguiente: Administrador 1, 3 Ingenieros, 30 Operarios, Celador 8, Contador 2, Secretarias 3, Supervisor 5, Vendedor 36.</li>
+</ul>
+</div>
+<div id="diez-estudiantes-en-practica-reciben-un-salario-semanal-en-pesos-durante-su-trabajo-de" class="section level3">
+<h3>2. Diez estudiantes en practica reciben un salario semanal en pesos durante su trabajo de:</h3>
+<pre><code>343250,  373500,  408000, 376000, 395000, 360000, 605000, 403250, 350000, 392000</code></pre>
+<ul>
+<li>Calcular la media, mediana y la moda</li>
+<li>¿Cuál de los tres indicadores de tendencia central es el más representativo y por qué?</li>
+</ul>
+</div>
+<div id="el-peso-de-80-artículos-es-de-130-kgs-si-60-de-ellos-pesan-en-promedio-120-kgs.-cuál-será-el-peso-promedio-del-resto-de-los-artículos" class="section level3">
+<h3>3. El peso de 80 artículos es de 130 kgs, si 60 de ellos pesan en promedio 120 kgs. Cuál será el peso promedio del resto de los artículos?</h3>
+</div>
+<div id="dé-un-ejemplo-específico-para-cada-uno-de-los-siguientes-promedios" class="section level3">
+<h3>4. Dé un ejemplo específico para cada uno de los siguientes promedios:</h3>
+<ol style="list-style-type: lower-alpha">
+<li>Media armónica.</li>
+<li>Media geométrica.</li>
+</ol>
+</div>
+<div id="un-automovilista-viaja-de-una-ciudad-a-a-una-ciudad-b-en-el-viaje-de-ida-la-velocidad-media-es-de-40-kmshr.-y-de-regreso-b-a-a-una-velocidad-media-de-60-kmhr.-halle-la-velocidad-media-del-viaje-completo." class="section level3">
+<h3>5. Un automovilista viaja de una ciudad <span class="math inline">\(A\)</span> a una ciudad <span class="math inline">\(B\)</span>, en el viaje de ida la velocidad media es de 40 kms/hr. y de regreso ( B a A) una velocidad media de 60 km/hr. Halle la velocidad media del viaje completo.</h3>
+</div>
+<div id="que-relación-existe-entre-la-media-la-mediana-y-la-moda" class="section level3">
+<h3>6. Que relación existe entre la media, la mediana y la moda :</h3>
+<ul>
+<li>En una distribución normal - o acampanada-</li>
+<li>En una distribución positivamente asimétrica</li>
+<li>En una distribucion negativamente asimétrica</li>
+</ul>
+</div>
+<div id="cuales-de-las-siguientes-afirmaciones-son-verdaderas-y-cuáles-falsas" class="section level3">
+<h3>7. Cuales de las siguientes afirmaciones son verdaderas y cuáles falsas</h3>
+<ul>
+<li><p>Al hacer una gráfica, las frecuencias deben representarse en el eje de la ordenada.</p></li>
+<li><p>El histograma, es una presentación muy efectiva de las distribuciones de frecuencias.</p></li>
+<li><p>El polígono de frecuencias, es especialmente apto para comparar diferentes disribuciones.</p></li>
+<li><p>Una variable discreta puede ser representada mediante un histograma</p></li>
+<li><p>El diagrama de barras se utiliza para representar datos continuos.</p></li>
+<li><p>La relación de escalas en una gráfica debe de ser 1:1</p></li>
+<li><p>Las gráficas se representan en el primer cuadrante.</p></li>
+<li><p>Si multiplicamos la variable por una constante, el coeficiente de variación se altera.</p></li>
+<li><p>La varianza de una constante por una variable es igual a la varianza de la variable.</p></li>
+<li><p>Al sumar 4 a cada uno de los números de la serie : 2, 6, 5, 9, 1 se obtiene la serie 6, 10, 9, 13 y 5. Las series tienen igual varianza, distinta media y diferente coeficiente de variación.</p>
+<pre><code>  %------------------------------------------------------------------------------------------</code></pre>
+<h3 id="en-un-estudio-realizado-para-investigar-la-distribución-del-tiempo-de-frendo-total-tiempo-de-reacción-más-tiempo-para-pasar-del-acelerador-al-freno-en-ms-en-condiciones-reales-de-manejo-a-60-kmh-se-obtuvo-el-siguiente-resumen-de-la-distribución-de-los-tiempos">8. En un estudio realizado para investigar la distribución del tiempo de frendo total ( tiempo de reacción más tiempo para pasar del acelerador al freno, en ms) en condiciones reales de manejo a 60 km/h se obtuvo el siguiente resumen de la distribución de los tiempos:</h3></li>
+</ul>
+<pre><code>            media = 535       &amp; mediana = 500       &amp; moda = 500   
+            Desv.est. = 96    &amp; mínimo = 220        &amp; máximo = 925 
+            percentil 5 = 400 &amp; percentil 10 = 430  &amp; percentil 90 = 640 
+            percentil95 = 720 &amp;&amp;\\  </code></pre>
+<p>¿Qué se concluye en relación con la forma de estos datos?</p>
+</div>
+<div id="para-analizar-la-rapidez-con-que-una-máquina-etiqueta-las-botellas-en-una-compañía-de-jugos-se-decide-hacer-seguimiento-al-número-de-botellas-etiquetadas-por-día.-a-partir-de-los-resultados-procesados-en-r-presente-un-análisis-estadístico-para-el-número-de-botellas-etiquetadas-por-día" class="section level3">
+<h3>9. Para analizar la rapidez con que una máquina etiqueta las botellas en una compañía de jugos, se decide hacer seguimiento al número de botellas etiquetadas por día. A partir de los resultados procesados en R presente un análisis estadístico para el número de botellas etiquetadas por día</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="center">i</th>
+<th align="center">Lower</th>
+<th align="center">Upper</th>
+<th align="center">Main</th>
+<th align="right">fi</th>
+<th align="right">hi</th>
+<th align="right">Ni</th>
+<th align="right">Hi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">5500</td>
+<td align="center">6000</td>
+<td align="center">5750</td>
+<td align="right">2</td>
+<td align="right">4.2</td>
+<td align="right">2</td>
+<td align="right">4.2</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">6000</td>
+<td align="center">6500</td>
+<td align="center">6250</td>
+<td align="right">4</td>
+<td align="right">8.3</td>
+<td align="right">6</td>
+<td align="right">12.5</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">6500</td>
+<td align="center">7000</td>
+<td align="center">6750</td>
+<td align="right">11</td>
+<td align="right">22.9</td>
+<td align="right">17</td>
+<td align="right">35.4</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">7000</td>
+<td align="center">7500</td>
+<td align="center">7250</td>
+<td align="right">10</td>
+<td align="right">20.8</td>
+<td align="right">27</td>
+<td align="right">56.2</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">7500</td>
+<td align="center">8000</td>
+<td align="center">7750</td>
+<td align="right">6</td>
+<td align="right">12.5</td>
+<td align="right">33</td>
+<td align="right">68.8</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">8000</td>
+<td align="center">8500</td>
+<td align="center">8250</td>
+<td align="right">10</td>
+<td align="right">20.8</td>
+<td align="right">43</td>
+<td align="right">89.6</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">8500</td>
+<td align="center">9000</td>
+<td align="center">8750</td>
+<td align="right">4</td>
+<td align="right">8.3</td>
+<td align="right">47</td>
+<td align="right">97.9</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">9000</td>
+<td align="center">9500</td>
+<td align="center">9250</td>
+<td align="right">1</td>
+<td align="right">2.1</td>
+<td align="right">48</td>
+<td align="right">100.0</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Min.  1st Qu.  Median Mean  3rd Qu. Max. 
+5944  6847     7455   7458  8116    9121 </code></pre>
+</div>
+<div id="considere-una-muestra-x_1-x_2..-x_n-y-suponga-que-se-calcularon-los-valores-de-barx-s2_x-y-s_x." class="section level3">
+<h3>10. Considere una muestra <span class="math inline">\(x_{1}\)</span>, <span class="math inline">\(x_{2}\)</span>,….., <span class="math inline">\(x_{n}\)</span> y suponga que se calcularon los valores de <span class="math inline">\(\bar{x}\)</span>, <span class="math inline">\(s^{2}_{x}\)</span> y <span class="math inline">\(s_{x}\)</span>.</h3>
+<ul>
+<li>Sea <span class="math inline">\(y_{i}= x_{i}-\bar{x}\)</span> para <span class="math inline">\(i=1,2....n\)</span> .¿Cómo se comparan los valores de <span class="math inline">\(s^{2}\)</span> y <span class="math inline">\(s\)</span> para <span class="math inline">\(y_{i}\)</span> con los valores correspondientes a las <span class="math inline">\(x_{i}\)</span>?</li>
+<li>Sea <span class="math inline">\(z_{i}=(x_{i}-\bar{x})/s\)</span> para <span class="math inline">\(i=1,2....n\)</span> ¿Cuáles son los valores de la varianza y desviación estandar de la muestra para <span class="math inline">\(z_{i}\)</span>?</li>
+</ul>
+</div>
+<div id="en-una-empresa-se-usan-dos-máquinas-distintas-para-fabricar-partes-de-cierto-tipo.-durante-un-solo-turno-se-obtuvo-una-muestra-de-n20-partes-que-produce-cada-máquina-se-determinó-el-valor-de-una-dimensión-crítica-determinada.-con-estos-datos-se-contruyó-el-diagrama-de-cajas-comparativo.-compare-y-describa-las-diferencias-de-las-dos-muestras." class="section level3">
+<h3>11. En una empresa se usan dos máquinas distintas para fabricar partes de cierto tipo. Durante un solo turno, se obtuvo una muestra de $n=20 $ partes que produce cada máquina, se determinó el valor de una dimensión crítica determinada. Con estos datos se contruyó el diagrama de cajas comparativo. Compare y describa las diferencias de las dos muestras.</h3>
+<pre><code>    %&amp;</code></pre>
+<p>% \begin{figure}[b] %  % \end{figure}</p>
+<pre><code>    %\begin{figure}[h]
+    %\begin{minipage}{8cm}
+    %\item En una empresa se usan dos máquinas distintas para fabricar partes de cierto tipo. Durante un solo turno, se obtuvo una muestra de $n=20 $ partes que produce cada máquina, se determinó el valor de una dimensión crítica determinada. Con estos datos se contruyó el diagrama de cajas comparativo . Compare y describa las diferencias de las dos muestras.
+    %\end{minipage}
+    %\    \ \hfill \begin{minipage}{8cm} 
+    %\includegraphics[height=5cm,width=5cm]{t2a}
+    %\caption{{\small Teorema del valor medio}}
+    %\end{minipage}
+    %\end{figure}</code></pre>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
